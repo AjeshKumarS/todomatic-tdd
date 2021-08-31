@@ -6,18 +6,15 @@ import Form from './Form';
 describe('<Form/>', () => {
     let form, addTask;
 
-    describe('Add new Task', () => {
+    beforeEach(async () => {
+        addTask = jest.fn().mockName('addTask');
+        ({ form } = render(<Form addTask={addTask} />));
 
-        beforeEach(async () => {
-            addTask = jest.fn().mockName('addTask');
-            ({ form } = render(<Form addTask={addTask} />));
+    });
 
-        });
-
-        it('Click Submit Form', () => {
-            userEvent.type(document.querySelector("input#new-todo-input"), "New Task");
-            document.querySelector("button#submit-button").click();
-            expect(addTask).toHaveBeenCalledWith("New Task");
-        });
+    it('Click Submit Form', () => {
+        userEvent.type(document.querySelector("input#new-todo-input"), "New Task");
+        document.querySelector("button#submit-button").click();
+        expect(addTask).toHaveBeenCalledWith("New Task");
     });
 });
