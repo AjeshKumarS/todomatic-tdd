@@ -14,7 +14,7 @@ describe('<Form/>', () => {
 
     it('Click Submit Form', () => {
         userEvent.type(document.querySelector("input#new-todo-input"), "New Task");
-        document.querySelector("button#submit-button").click();
+        userEvent.click(document.querySelector("button#submit-button"));
         expect(addTask).toHaveBeenCalledWith("New Task");
     });
 });

@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import FilterButton from './FilterButton';
+import userEvent from '@testing-library/user-event';
 
 describe('<FilterButton />', () => {
     let filterButton, setFilter;
@@ -12,7 +13,7 @@ describe('<FilterButton />', () => {
     });
 
     it('Click filter button', () => {
-        document.querySelector("button").click();
+        userEvent.click(document.querySelector("button"));
         expect(setFilter).toHaveBeenCalledWith("All");
     });
 });
