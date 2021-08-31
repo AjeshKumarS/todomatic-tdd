@@ -5,7 +5,7 @@ import FilterButton from './FilterButton';
 describe('<FilterButton />', () => {
     let filterButton, setFilter;
 
-    describe('clicking the send button', () => {
+    describe('Clicking filter Button', () => {
         beforeEach(async () => {
             setFilter = jest.fn().mockName('setFilter');
             ({ filterButton } = render(<FilterButton name="All" setFilter={setFilter} isPressed={true} />));
